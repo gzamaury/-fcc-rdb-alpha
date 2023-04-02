@@ -117,7 +117,14 @@ ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
 
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
-    name character varying(30)
+    name character varying(30),
+    confirmed_moons integer,
+    rings boolean,
+    orbital_period_in_years numeric(4,2),
+    rotation_period_in_days numeric(4,2),
+    description text,
+    number_of_rings integer,
+    major_planet boolean
 );
 
 
