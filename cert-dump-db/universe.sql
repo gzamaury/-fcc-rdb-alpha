@@ -201,7 +201,7 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    galaxy_id integer NOT NULL,
+    galaxy_id integer,
     description text,
     classification character(1),
     constellation_id integer
@@ -283,6 +283,9 @@ INSERT INTO public.constellation VALUES (3, 'Virgo', 'The constellation Virgo, t
 INSERT INTO public.galaxy VALUES (1, 'Milky Way', 'Milky Way Galaxy, large spiral system consisting of several hundred billion stars, one of which is the Sun. It takes its name from the Milky Way, the irregular luminous band of stars and gas clouds that stretches across the sky as seen from Earth', false, true);
 INSERT INTO public.galaxy VALUES (2, 'Andromeda', 'Andromeda Galaxy, also called Andromeda Nebula, (catalog numbers NGC 224 and M31), great spiral galaxy in the constellation Andromeda, the nearest large galaxy. The Andromeda Galaxy is one of the few visible to the unaided eye, appearing as a milky blur. It is located about 2,480,000 light-years from Earth; its diameter is approximately 200,000 light-years; and it shares various characteristics with the Milky Way system.', false, true);
 INSERT INTO public.galaxy VALUES (3, 'Hercules', 'Hercules, or Her, is a dwarf spheroidal galaxy situated in the Hercules constellation and discovered in 2006 in data obtained by the Sloan Digital Sky Survey. The galaxy is located at a distance of about 140 kpc from the Sun and moves away from the Sun with a velocity of about 45 km/s. It is classified as a dwarf spheroidal galaxy.', true, true);
+INSERT INTO public.galaxy VALUES (4, 'Comet Galaxy', 'The Comet Galaxy is a spiral galaxy with a little more mass than our Milky Way galaxy, located 3.2 billion light-years away from Earth, within the galaxy cluster Abell 2667, in the small southern constellation of Sculptor. It was detected on 2 March 2007 with the Hubble Space Telescope.', false, true);
+INSERT INTO public.galaxy VALUES (5, 'Whirlpool Galaxy', 'Messier 51 (M51), better known as the Whirlpool Galaxy, is a famous grand-design spiral galaxy located in the constellation Canes Venatici. The Whirlpool Galaxy has an apparent magnitude of 8.4 and lies at an approximate distance of 23 million light years from Earth.', false, true);
+INSERT INTO public.galaxy VALUES (6, 'Centaurus A', 'Centaurus A is a peculiar galaxy located in the southern constellation Centaurus. It is the fifth brightest galaxy in the night sky, the nearest giant galaxy to the Milky Way, and one of the nearest radio galaxies to Earth.', false, true);
 
 
 --
@@ -312,6 +315,8 @@ INSERT INTO public.star VALUES (1, 'Sun', 1, 'The Sun is the star at the center 
 INSERT INTO public.star VALUES (3, 'Altair', 1, 'Altair, also called Alpha Aquilae, the brighest star in the northern constellation Aquila and the 12th brightest star in the sky.', 'A', 2);
 INSERT INTO public.star VALUES (2, 'Proxima Centauri', 1, 'Proxima Centauri is a small, low-mass star located 4.2465 light-years away from the Sun in the southern constellation of Centaurus. Its Latin name means the ''nearest of Centaurus''. It was discovered in 1915 by Robert Innes and is the nearest-known star to the Sun.', 'M', 1);
 INSERT INTO public.star VALUES (4, 'Spica', 1, 'Spica, (Latin: "Head of Grain") also called Alpha Virginis, brightest star in the zodiacal constellation Virgo and one of the 15 brightest in the entire sky, having an apparent visual magnitude of 1.04. It is a bluish star; spectroscopic examination reveals Spica to be a binary with a four-day period, its two components being of the first and third magnitudes, respectively. Spica lies about 250 light-years from Earth.', 'B', 3);
+INSERT INTO public.star VALUES (5, 'Centaurus X-3', 1, 'Centaurus X-3 is an X-ray pulsar with a period of 4.84 seconds. It was the first X-ray pulsar to be discovered, and the third X-ray source to be discovered in the constellation Centaurus.', 'O', 1);
+INSERT INTO public.star VALUES (6, 'Beta Virginis', NULL, 'Zavijava, also designated as β Virginis (beta Virginis), is a multiple main-sequence star in the constellation of Virgo. Zavijava visual magnitude is 3.61. Because of its moderate brightness, Zavijava should be easily visible from locations with dark skyes, while it can be barely visible, or not visible at all, from skyes affected by light pollution.', 'F', 1);
 
 
 --
@@ -325,7 +330,7 @@ SELECT pg_catalog.setval('public.constellation_constellation_id_seq', 3, true);
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 3, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
@@ -346,7 +351,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 5, true);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 4, true);
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
 
 
 --
