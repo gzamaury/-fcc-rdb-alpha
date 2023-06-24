@@ -20,7 +20,7 @@ else
     # reading data
     echo "$ELEMENT_SELECTED" | while IFS="|" read A_NUMBER NAME SYMBOL TYPE A_MASS M_POINT B_POINT
     do
-      echo -e "The element with atomic number $A_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $A_MASS amu. Hydrogen has a melting point of $M_POINT celsius and a boiling point of $B_POINT celsius."
+      echo -e "The element with atomic number $A_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $A_MASS amu. $NAME has a melting point of $M_POINT celsius and a boiling point of $B_POINT celsius."
     done
   fi
 
