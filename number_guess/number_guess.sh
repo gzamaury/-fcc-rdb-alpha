@@ -28,3 +28,51 @@ else
   done
 
 fi
+
+# generate a random number between 1 and 1000
+RANDOM_NUMBER=$((RANDOM % 1000 + 1))
+
+# Print the random number
+echo -e "Number: $RANDOM_NUMBER"
+
+# ask for a number
+echo -e "\nGuess the secret number between 1 and 1000:"
+read GUESSING_NUMBER
+
+# check if input is a number, if not ask for a number
+ASK_FOR_A_NUMBER() {
+  while [[ ! $GUESSING_NUMBER =~ ^[0-9]+$ ]]
+  do
+    echo -e "\nThat is not an integer, guess again:"
+    read GUESSING_NUMBER
+  done
+}
+
+# print if input is lower or higher
+IS_INPUT_LOW_OR_HIGH() {
+  if [[ $GUESSING_NUMBER > $RANDOM_NUMBER ]]
+  then
+    echo -e "It's lower than that, guess again:"
+  fi
+  
+  if [[ $GUESSING_NUMBER < $RANDOM_NUMBER ]]
+  then
+    echo -e "It's higher than that, guess again:"
+  fi
+
+  if [[ $GUESSING_NUMBER != $RANDOM_NUMBER ]]
+  then
+    read GUESSING_NUMBER
+  fi
+}
+
+# ask for numbers until guessing the number
+while [[ $GUESSING_NUMBER != $RANDOM_NUMBER ]]
+do
+  ASK_FOR_A_NUMBER
+  IS_INPUT_LOW_OR_HIGH
+done
+
+echo "You guessed it!"
+
+
